@@ -63,6 +63,28 @@ exports.createPages = async ({graphql, actions}) => {
               }
               strapi_component
             }
+            ... on STRAPI__COMPONENT_SECTIONS_WHAT_WE_DO {
+              id
+              description {
+                data {
+                  childMarkdownRemark {
+                    html
+                  }
+                }
+              }
+              strapi_component
+              title
+              whatWeDoBlock {
+                title
+                description {
+                data {
+                  childMarkdownRemark {
+                    html
+                  }
+                }
+              }
+              }
+            }
           }
         }
       }

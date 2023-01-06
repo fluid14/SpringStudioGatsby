@@ -2,6 +2,7 @@ import React from "react";
 import Theme from "../../theme/Theme";
 import Header from "../../components/sections/Header/Header";
 import ContactWithClients from "../../components/sections/ContactWithClients/ContactWithClients";
+import WhatWeDo from "../../components/sections/WhatWeDo/WhatWeDo";
 
 const Default = ({pageContext: {data}}) => {
     console.log(data);
@@ -16,6 +17,9 @@ const Default = ({pageContext: {data}}) => {
 
                     case 'sections.contact-with-clients':
                         return <ContactWithClients data={component} key={id}/>;
+
+                    case 'sections.what-we-do':
+                        return <WhatWeDo data={component} key={id}/>;
 
                     default:
                         return null

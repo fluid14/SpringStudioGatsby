@@ -56,7 +56,7 @@ module.exports = {
                     queryParams: {
                         populate: {
                             body: {
-                                populate: "*"
+                                populate: '*'
                             },
                         },
                     },
