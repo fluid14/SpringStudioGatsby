@@ -55,7 +55,7 @@ module.exports = {
                     singularName: 'home-page',
                     queryParams: {
                         populate: {
-                            'MainContent': {
+                            body: {
                                 populate: "*"
                             },
                         },
