@@ -3,8 +3,6 @@ import gradient from '/static/images/headers/gradient3.svg';
 import {GatsbyImage} from "gatsby-plugin-image";
 
 const Header = ({data}) => {
-    console.log(data)
-
     const {
         id,
         title,
@@ -12,6 +10,7 @@ const Header = ({data}) => {
         cta: {label: ctaLabel, href: ctaHref},
         image: {alternativeText: imageAlt, localFile: {childImageSharp: {gatsbyImageData: image}}}
     } = data;
+
     return (
         <header className="mb-10 sm:mb-16" key={id}>
             <div className="overflow-hidden">

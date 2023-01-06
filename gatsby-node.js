@@ -28,7 +28,11 @@ exports.createPages = async ({graphql, actions}) => {
               }
               image {
                 alternativeText
-                url
+                localFile {
+                  childImageSharp {
+                    gatsbyImageData(placeholder: BLURRED)
+                  }
+                }
               }
               strapi_component
               title
