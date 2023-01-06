@@ -54,11 +54,7 @@ module.exports = {
                 singleTypes: [{
                     singularName: 'home-page',
                     queryParams: {
-                        populate: {
-                            body: {
-                                populate: '*'
-                            },
-                        },
+                        populate: 'deep'
                     },
                 }, 'global',
                 ],

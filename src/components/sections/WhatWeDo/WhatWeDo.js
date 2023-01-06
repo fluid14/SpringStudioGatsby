@@ -2,9 +2,8 @@ import React from "react";
 import WhatWeDoBlock from "../../shared/WhatWeDoBlock/WhatWeDoBlock";
 
 const WhatWeDo = ({data}) => {
-    console.log(data)
-
     const {title, description: {data: {childMarkdownRemark: {html: description}}}, whatWeDoBlock} = data;
+
     return (
         <section className="pt-[50px] pb-[50px] md:pt-32 md:pb-36 bg-indigo-600 overflow-hidden">
             <div className="container px-4 mx-auto">

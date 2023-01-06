@@ -17,6 +17,28 @@ exports.createPages = async ({graphql, actions}) => {
       allStrapiHomePage {
         nodes {
           body {
+              ... on STRAPI__COMPONENT_SECTIONS_STEPS {
+              id
+              title
+              signature
+              steps {
+                description {
+                  data {
+                    childMarkdownRemark {
+                      html
+                    }
+                  }
+                }
+                icon {
+                  localFile {
+                    url
+                  }
+                }
+                title
+                isSpecialIcon
+              }
+              strapi_component
+            }
             ... on STRAPI__COMPONENT_SECTIONS_CONTACT_WITH_CLIENTS {
               id
               description {
@@ -76,13 +98,19 @@ exports.createPages = async ({graphql, actions}) => {
               title
               whatWeDoBlock {
                 title
+                icon {
+                  localFile {
+                    url
+                  }
+                  alternativeText
+                }
                 description {
-                data {
-                  childMarkdownRemark {
-                    html
+                  data {
+                    childMarkdownRemark {
+                      html
+                    }
                   }
                 }
-              }
               }
             }
           }
