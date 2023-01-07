@@ -1,7 +1,7 @@
 import React from "react";
 
 const PackageOption = ({data}) => {
-    const {title, description: {data: description}, price, priceAdditional, type, options} = data;
+    const {title, description: {data: description}, price, priceAdditional, type, options, isMark} = data;
 
     return (<div className="w-full lg:w-1/2 xl:w-1/4">
             <div className="px-9 pt-8 pb-11 h-full bg-white bg-opacity-90">
@@ -16,11 +16,21 @@ const PackageOption = ({data}) => {
                         <span>{price}</span>
                     </h3>
                     <p className="mb-8 text-sm text-gray-500 font-medium leading-relaxed">{priceAdditional}</p>
-                    <button
-                        className="chooseBtn mb-9 py-4 px-9 w-full font-medium border border-blueGray-300 hover:border-blueGray-400 rounded-xl focus:ring focus:ring-gray-50 bg-white hover:bg-gray-50 transition ease-in-out duration-200"
-                        type="button" data-type={type}>
-                        Wybieram
-                    </button>
+                    {!isMark &&
+                        <button
+                            className="chooseBtn mb-9 py-4 px-9 w-full font-medium border border-blueGray-300 hover:border-blueGray-400 rounded-xl focus:ring focus:ring-gray-50 bg-white hover:bg-gray-50 transition ease-in-out duration-200"
+                            type="button" data-type={type}>
+                            Wybieram
+                        </button>
+                    }
+
+                    {isMark &&
+                        <button
+                            className="chooseBtn mb-9 py-4 px-9 w-full text-white font-semibold rounded-xl focus:ring focus:ring-indigo-300 bg-indigo-600 hover:bg-indigo-700 transition ease-in-out duration-200"
+                            type="button" data-type={type}>
+                            Wybieram
+                        </button>
+                    }
                     <ul>
                         {options.length > 0 && options.map(({text}) => (
                             <li className="mb-4 flex items-center">

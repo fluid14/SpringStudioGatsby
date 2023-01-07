@@ -27,6 +27,7 @@ exports.createPages = async ({graphql, actions}) => {
                 type
                 price
                 priceAdditional
+                isMark
                 description {
                   data
                 }
