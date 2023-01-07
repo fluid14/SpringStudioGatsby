@@ -2,9 +2,8 @@ import React from "react";
 import Step from "../../shared/Step/Step";
 
 const Steps = ({data}) => {
-    console.log(data)
-
     const {signature, title, steps} = data;
+
     return(
         <section className="relative pt-[60px] pb-[60px] md:pt-28 md:pb-24 bg-white overflow-hidden" id="jakToDziała?">
             <div className="relative z-10 container px-4 mx-auto">

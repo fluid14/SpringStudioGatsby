@@ -17,6 +17,37 @@ exports.createPages = async ({graphql, actions}) => {
       allStrapiHomePage {
         nodes {
           body {
+              ... on STRAPI__COMPONENT_SECTIONS_PRICING {
+              id
+              package_options {
+                options {
+                  text
+                }
+                title
+                type
+                price
+                priceAdditional
+                description {
+                  data
+                }
+              }
+              description {
+                data {
+                  childMarkdownRemark {
+                    html
+                  }
+                }
+              }
+              addnotation {
+                data {
+                  childMarkdownRemark {
+                    html
+                  }
+                }
+              }
+              strapi_component
+              title
+            }
               ... on STRAPI__COMPONENT_SECTIONS_STEPS {
               id
               title

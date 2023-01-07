@@ -4,6 +4,7 @@ import Header from "../../components/sections/Header/Header";
 import ContactWithClients from "../../components/sections/ContactWithClients/ContactWithClients";
 import WhatWeDo from "../../components/sections/WhatWeDo/WhatWeDo";
 import Steps from "../../components/sections/Steps/Steps";
+import Pricing from "../../components/sections/Pricing/Pricing";
 
 const Default = ({pageContext: {data}}) => {
     console.log(data);
@@ -25,6 +26,9 @@ const Default = ({pageContext: {data}}) => {
 
                     case 'sections.steps':
                         return <Steps data={component} key={id}/>;
+
+                    case 'sections.pricing':
+                        return <Pricing data={component} key={id}/>;
 
                     default:
                         return null
