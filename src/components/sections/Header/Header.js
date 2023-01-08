@@ -15,8 +15,8 @@ const Header = ({data}) => {
         <header className="mb-10 sm:mb-16" key={id}>
             <div className="overflow-hidden">
                 <div className="container px-4 mx-auto">
-                    <div className="relative bg-indigo-50 overflow-hidden rounded-3xl"><img
-                        className="absolute left-0 bottom-0" src={gradient}
+                    <div className="relative bg-indigo-50 overflow-hidden rounded-3xl">
+                        <img className="absolute left-0 bottom-0" src={gradient}
                         alt="gradient"/>
                         <div className="relative flex flex-wrap justify-between items-end -m-8">
                             <div
