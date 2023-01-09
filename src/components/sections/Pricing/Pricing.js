@@ -7,12 +7,13 @@ const Pricing = ({data}) => {
         title,
         description: {data: {childMarkdownRemark: {html: description}}},
         addnotation: {data: {childMarkdownRemark: {html: addnotation}}},
-        package_options: packageOptions
+        package_options: packageOptions,
+        componentId
     } = data;
 
     return (
         <section className="pt-[50px] pb-[50px] md:pt-24 md:pb-32 bg-blueGray-50 overflow-hidden"
-                 id="aleIleToKosztuje?">
+                 id={componentId}>
             <div className="container px-4 mx-auto">
                 <h2 className="mb-6 text-6xl md:text-8xl xl:text-10xl font-bold font-heading tracking-px-n leading-none">
                     {title}

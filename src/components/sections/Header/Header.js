@@ -8,11 +8,12 @@ const Header = ({data}) => {
         title,
         description: {data: {childMarkdownRemark: {html: description}}},
         cta: {label: ctaLabel, href: ctaHref},
-        image: {alternativeText: imageAlt, localFile: {childImageSharp: {gatsbyImageData: image}}}
+        image: {alternativeText: imageAlt, localFile: {childImageSharp: {gatsbyImageData: image}}},
+        componentId
     } = data;
 
     return (
-        <header className="mb-10 sm:mb-16" key={id}>
+        <header className="mb-10 sm:mb-16" id={componentId}>
             <div className="overflow-hidden">
                 <div className="container px-4 mx-auto">
                     <div className="relative bg-indigo-50 overflow-hidden rounded-3xl">

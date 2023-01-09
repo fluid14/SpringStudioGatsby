@@ -3,16 +3,14 @@ import {StaticQuery, graphql} from "gatsby";
 import gradient from '/static/images/contact/gradient2.svg'
 
 const ContactComponent = ({data, global}) => {
-    console.log(global)
-
     const {
-        signature, label: {data: {childMarkdownRemark: {html: label}}},
+        signature, label: {data: {childMarkdownRemark: {html: label}}}, componentId
     } = data;
 
     const {strapiGlobal: {phoneNumber, email}} = global;
 
     return (
-        <section className="relative py-[50px] md:py-24 bg-gray-50 overflow-hidden" id="kontakt">
+        <section className="relative py-[50px] md:py-24 bg-gray-50 overflow-hidden" id={componentId}>
             <img className="absolute bottom-0 right-0" src={gradient} alt="gradient"/>
             <div className="relative z-10 container px-4 mx-auto">
                 <div className="flex flex-wrap -m-8">

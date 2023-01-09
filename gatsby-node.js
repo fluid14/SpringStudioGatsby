@@ -18,6 +18,7 @@ exports.createPages = async ({graphql, actions}) => {
         nodes {
           body {
              ... on STRAPI__COMPONENT_SECTIONS_CONTACT {
+              componentId
               id
               label {
                 data {
@@ -32,6 +33,7 @@ exports.createPages = async ({graphql, actions}) => {
               signature
             }
              ... on STRAPI__COMPONENT_SECTIONS_FAQ {
+              componentId
               id
               additional {
                 data {
@@ -56,6 +58,7 @@ exports.createPages = async ({graphql, actions}) => {
               title
             }
               ... on STRAPI__COMPONENT_SECTIONS_PRICING {
+              componentId
               id
               package_options {
                 options {
@@ -88,6 +91,7 @@ exports.createPages = async ({graphql, actions}) => {
               title
             }
               ... on STRAPI__COMPONENT_SECTIONS_STEPS {
+              componentId
               id
               title
               signature
@@ -110,6 +114,7 @@ exports.createPages = async ({graphql, actions}) => {
               strapi_component
             }
             ... on STRAPI__COMPONENT_SECTIONS_CONTACT_WITH_CLIENTS {
+              componentId
               id
               description {
                 data {
@@ -130,6 +135,7 @@ exports.createPages = async ({graphql, actions}) => {
               title
             }
             ... on STRAPI__COMPONENT_SECTIONS_HEADER {
+              componentId
               id
                description {
                 data {
@@ -156,6 +162,7 @@ exports.createPages = async ({graphql, actions}) => {
               strapi_component
             }
             ... on STRAPI__COMPONENT_SECTIONS_WHAT_WE_DO {
+              componentId
               id
               description {
                 data {

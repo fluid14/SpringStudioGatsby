@@ -2,10 +2,10 @@ import React from "react";
 import Step from "../../shared/Step/Step";
 
 const Steps = ({data}) => {
-    const {signature, title, steps} = data;
+    const {signature, title, steps, componentId} = data;
 
     return(
-        <section className="relative pt-[60px] pb-[60px] md:pt-28 md:pb-24 bg-white overflow-hidden" id="jakToDziała?">
+        <section className="relative pt-[60px] pb-[60px] md:pt-28 md:pb-24 bg-white overflow-hidden" id={componentId}>
             <div className="relative z-10 container px-4 mx-auto">
                 <p className="mb-6 text-sm text-indigo-600 text-center font-semibold uppercase tracking-px">
                     {signature}

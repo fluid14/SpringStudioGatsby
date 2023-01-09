@@ -5,11 +5,12 @@ const ContactWithClients = ({data}) => {
     const {
         title,
         description: {data: {childMarkdownRemark: {html: description}}},
-        image: {alternativeText: imageAlt, localFile: {childImageSharp: {gatsbyImageData: image}}}
+        image: {alternativeText: imageAlt, localFile: {childImageSharp: {gatsbyImageData: image}}},
+        componentId
     } = data;
 
     return (
-        <section className="relative bg-white overflow-hidden mb-5 sm:mb-16">
+        <section className="relative bg-white overflow-hidden mb-5 sm:mb-16" id={componentId}>
             <div className="relative z-10 container px-4 mx-auto flex flex-wrap lg:items-center -m-8">
                 <div className="w-full lg:w-1/2 p-8">
                     <h2 className="mb-8 text-6xl md:text-8xl xl:text-10xl font-bold font-heading tracking-px-n leading-none">

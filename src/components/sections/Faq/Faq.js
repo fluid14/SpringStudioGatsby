@@ -7,10 +7,11 @@ const Faq = ({data}) => {
         signature,
         title,
         additional: {data: {childMarkdownRemark: {html: additional}}},
-        faqElement
+        faqElement,
+        componentId
     } = data;
 
-    return (<section className="relative py-[50px] md:py-24 md:pb-12 bg-blueGray-50 overflow-hidden">
+    return (<section className="relative py-[50px] md:py-24 md:pb-12 bg-blueGray-50 overflow-hidden" id={componentId}>
             <img className="absolute bottom-0 left-1/2 transform -translate-x-1/2" src={gradient} alt="Kontakt"/>
             <div className="relative z-10 container px-4 mx-auto">
                 <div className="md:max-w-4xl mx-auto">
