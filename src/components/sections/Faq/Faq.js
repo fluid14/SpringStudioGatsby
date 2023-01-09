@@ -3,8 +3,6 @@ import gradient from '/static/images/faq/gradient.svg';
 import FaqElement from "../../shared/FaqElement/FaqElement";
 
 const Faq = ({data}) => {
-    console.log(data);
-
     const {
         signature,
         title,
