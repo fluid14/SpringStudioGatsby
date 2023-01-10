@@ -8,43 +8,39 @@ import Pricing from "../../components/sections/Pricing/Pricing";
 import Faq from "../../components/sections/Faq/Faq";
 import Contact from "../../components/sections/Contact/Contact";
 
-const Default = ({pageContext: {data}}) => {
-    console.log(data);
+const Default = ({pageContext: {data}}) => (
+    <Theme>
+        {data.map((component) => {
+            const {strapi_component: componentType, id} = component;
+            console.log(componentType)
+            switch (componentType) {
+                case 'sections.header':
+                    return <Header data={component} key={id}/>;
 
-    return (
-        <Theme>
-            {data.map((component) => {
-                const {strapi_component: componentType, id} = component;
-                console.log(componentType)
-                switch (componentType) {
-                    case 'sections.header':
-                        return <Header data={component} key={id} />;
+                case 'sections.contact-with-clients':
+                    return <ContactWithClients data={component} key={id}/>;
 
-                    case 'sections.contact-with-clients':
-                        return <ContactWithClients data={component} key={id}/>;
+                case 'sections.what-we-do':
+                    return <WhatWeDo data={component} key={id}/>;
 
-                    case 'sections.what-we-do':
-                        return <WhatWeDo data={component} key={id}/>;
+                case 'sections.steps':
+                    return <Steps data={component} key={id}/>;
 
-                    case 'sections.steps':
-                        return <Steps data={component} key={id}/>;
+                case 'sections.pricing':
+                    return <Pricing data={component} key={id}/>;
 
-                    case 'sections.pricing':
-                        return <Pricing data={component} key={id}/>;
+                case 'sections.faq':
+                    return <Faq data={component} key={id}/>;
 
-                    case 'sections.faq':
-                        return <Faq data={component} key={id}/>;
+                case 'sections.contact':
+                    return <Contact data={component} key={id}/>;
 
-                    case 'sections.contact':
-                        return <Contact data={component} key={id}/>;
+                default:
+                    return null
 
-                    default:
-                        return null
-
-                }
-            })}
-        </Theme>
-    )
-}
+            }
+        })}
+    </Theme>
+);
 
 export default Default;

@@ -1,6 +1,8 @@
 import * as React from "react"
+import {graphql, StaticQuery} from "gatsby";
 
-const Navbar = () => (
+const NavbarComponent = ({data}) => {
+    return(
     <nav className="sticky top-0 bg-white z-20">
         <div className="container mx-auto overflow-hidden">
             <div className="relative z-20 flex items-center justify-between px-4 py-5 bg-transparent">
@@ -81,6 +83,19 @@ const Navbar = () => (
             </div>
         </div>
     </nav>
-)
+)}
 
-export default Navbar
+export default function Navbar(props) {
+    return (
+        <StaticQuery query={graphql`
+                query Contact {
+                  strapiGlobal {
+                    email
+                    phoneNumber
+                  }
+                }
+              `}
+                     render={data => <NavbarComponent global={data} {...props} />}
+        />
+    )
+};
