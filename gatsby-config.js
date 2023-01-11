@@ -51,12 +51,19 @@ module.exports = {
                 apiURL: process.env.STRAPI_API_URL,
                 accessToken: process.env.STRAPI_TOKEN,
                 collectionTypes: ['blog'],
-                singleTypes: [{
-                    singularName: 'home-page',
-                    queryParams: {
-                        populate: 'deep'
+                singleTypes: [
+                    {
+                        singularName: 'home-page',
+                        queryParams: {
+                            populate: 'deep'
+                        }
                     },
-                }, 'global',
+                    {
+                        singularName: 'global',
+                        queryParams: {
+                            populate: 'deep'
+                        }
+                    }
                 ],
             },
         },

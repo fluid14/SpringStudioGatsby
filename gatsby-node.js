@@ -60,19 +60,6 @@ exports.createPages = async ({graphql, actions}) => {
               ... on STRAPI__COMPONENT_SECTIONS_PRICING {
               componentId
               id
-              package_options {
-                options {
-                  text
-                }
-                title
-                type
-                price
-                priceAdditional
-                isMark
-                description {
-                  data
-                }
-              }
               description {
                 data {
                   childMarkdownRemark {
@@ -147,7 +134,6 @@ exports.createPages = async ({graphql, actions}) => {
               title
               cta {
                 href
-                inNewTab
                 isExternal
                 label
               }
@@ -195,6 +181,20 @@ exports.createPages = async ({graphql, actions}) => {
       }
     }
   `);
+
+    // package_options {
+    //     options {
+    //         text
+    //     }
+    //     title
+    //     type
+    //     price
+    //     priceAdditional
+    //     isMark
+    //     description {
+    //         data
+    //     }
+    // }
 
     query.data.allStrapiHomePage.nodes.forEach(({body}) => {
         createPage({

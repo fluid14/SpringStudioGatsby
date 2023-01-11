@@ -14,7 +14,7 @@ const WhatWeDo = ({data}) => {
                     <div className="mb-10 md:mb-20 xl:mb-36 text-white text-opacity-70" dangerouslySetInnerHTML={{__html: description}} />
                 </div>
                 <div className="grid md:grid-cols-1 xl:grid-cols-2 -m-3">
-                    {whatWeDoBlock.map((data) => <WhatWeDoBlock data={data} />)}
+                    {whatWeDoBlock.map((data) => <WhatWeDoBlock data={data} key={data.title}/>)}
                 </div>
             </div>
         </section>
