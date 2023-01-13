@@ -53,7 +53,7 @@ const ContactComponent = ({data, global}) => {
                             <label className="block mb-4">
                                 <input
                                     className="px-4 py-3 w-full text-gray-500 font-medium placeholder-gray-500 bg-white bg-opacity-50 outline-none border border-blueGray-200 rounded-lg focus:ring focus:ring-indigo-300"
-                                    id="tel" type="text" placeholder="Telefon" name="tel" required="required"/>
+                                    id="phone" type="text" placeholder="Telefon" name="phone" required="required"/>
                                 <label className="block mb-4">
                                     <input
                                         className="hidden px-4 py-3 w-full text-gray-500 font-medium placeholder-gray-500 bg-white bg-opacity-50 outline-none border border-blueGray-200 rounded-lg focus:ring focus:ring-indigo-300"
