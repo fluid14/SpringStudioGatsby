@@ -1,37 +1,50 @@
 import * as React from "react"
 import {graphql, StaticQuery} from "gatsby";
-import {useEffect, useRef} from "@types/react";
+import {useEffect, useRef} from "react";
 
 const NavbarComponent = ({data: {strapiGlobal}}) => {
-    console.log(strapiGlobal)
-
     const {
         navigation: {cta: {href: ctaHref, label: ctaLabel}, links},
         logo: {alternativeText: logoAlt, localFile: {url: logoUrl}}
     } = strapiGlobal
 
 
-    const burger = useRef(null).current;
-    const menu = useRef(null).current;
-    const backdrop = useRef(null).current;
-    const close = useRef(null).current;
+    const burgerRef = useRef(null);
+    const menuRef = useRef(null);
+    const backdropRef = useRef(null);
+    const closeRef = useRef(null);
+
 
     useEffect(() => {
-        if (burger && menu) {
-            [burger, menu, backdrop].forEach(element => {
-                    element.addEventListener('click', () => {
-                        menu.classList.toggle('hidden');
-                        backdrop.classList.toggle('hidden');
-                    })
-                }
-            )
+        const burger = burgerRef.current;
+        const menu = menuRef.current;
+        const backdrop = backdropRef.current;
+        const close = closeRef.current;
+
+        const onPageLoad = () => {
+            if (burger && menu) {
+                [burger, menu, backdrop].forEach(element => {
+                        element.addEventListener('click', () => {
+                            menu.classList.toggle('hidden');
+                            backdrop.classList.toggle('hidden');
+                        })
+                    }
+                )
+            }
+
+            if (close && menu) {
+                close.addEventListener('click', () => {
+                    menu.classList.remove('hidden');
+                    backdrop.classList.remove('hidden');
+                })
+            }
         }
 
-        if (close && menu) {
-            close.addEventListener('click', () => {
-                menu.classList.remove('hidden');
-                backdrop.classList.remove('hidden');
-            })
+        if (document.readyState === 'complete') {
+            onPageLoad();
+        } else {
+            window.addEventListener('load', onPageLoad);
+            return () => window.removeEventListener('load', onPageLoad);
         }
     }, []);
 
@@ -66,7 +79,7 @@ const NavbarComponent = ({data: {strapiGlobal}}) => {
                                     className="py-2.5 px-4 text-base w-full font-medium border border-gray-400 hover:border-gray-500 rounded-xl focus:ring focus:ring-gray-50 bg-white hover:bg-gray-50 transition ease-in-out duration-200"
                                     href={ctaHref}>{ctaLabel}</a></div>
                             </div>
-                            <div className="w-auto lg:hidden"><a href="#" id="navbar-burger" ref={burger}>
+                            <div className="w-auto lg:hidden"><a href="#" id="navbar-burger" ref={burgerRef}>
                                 <svg className="navbar-burger text-indigo-600" width="51" height="51"
                                      viewBox="0 0 56 56"
                                      fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -79,8 +92,9 @@ const NavbarComponent = ({data: {strapiGlobal}}) => {
                     </div>
                 </div>
                 <div className="hidden navbar-backdrop fixed inset-0 bg-gray-800 opacity-80 z-49"
-                     id="navbar-backdrop" ref={backdrop}></div>
-                <div className="hidden navbar-menu fixed top-0 left-0 bottom-0 w-4/6 sm:max-w-xs z-50" id="navbar-menu" ref={menu}>
+                     id="navbar-backdrop" ref={backdropRef}></div>
+                <div className="hidden navbar-menu fixed top-0 left-0 bottom-0 w-4/6 sm:max-w-xs z-50" id="navbar-menu"
+                     ref={menuRef}>
                     <nav className="relative z-10 px-9 pt-8 bg-white h-full overflow-y-auto">
                         <div className="flex flex-wrap justify-between h-full">
                             <div className="w-full">
@@ -90,7 +104,8 @@ const NavbarComponent = ({data: {strapiGlobal}}) => {
                                             <img className="nav-logo" src={logoUrl} alt={logoAlt}/>
                                         </a>
                                     </div>
-                                    <div className="w-auto p-2"><a className="navbar-burger" href="#" id="navbar-close" ref={close}>
+                                    <div className="w-auto p-2"><a className="navbar-burger" href="#" id="navbar-close"
+                                                                   ref={closeRef}>
                                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                              xmlns="http://www.w3.org/2000/svg">
                                             <path d="M6 18L18 6M6 6L18 18" stroke="#111827" strokeWidth="2"

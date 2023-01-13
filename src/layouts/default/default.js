@@ -12,7 +12,7 @@ const Default = ({pageContext: {data}}) => (
     <Theme>
         {data.map((component) => {
             const {strapi_component: componentType, id} = component;
-            console.log(componentType)
+
             switch (componentType) {
                 case 'sections.header':
                     return <Header data={component} key={id}/>;
