@@ -26,9 +26,9 @@ const Pricing = ({data}) => {
                     </div>
                 </div>
                 <div className="overflow-hidden border border-blueGray-200 rounded-3xl mb-4">
-                    {/*<div className="flex flex-wrap divide-y md:divide-x lg:divide-y-0 divide-blueGray-200">*/}
-                    {/*    {packageOptions.map(option => <PackageOption data={option} key={option.title}/>)}*/}
-                    {/*</div>*/}
+                    <div className="flex flex-wrap divide-y md:divide-x lg:divide-y-0 divide-blueGray-200">
+                        {packageOptions.map(option => <PackageOption data={option} key={option.title}/>)}
+                    </div>
                 </div>
                 <div className="text-gray-500 text-center p-2" dangerouslySetInnerHTML={{__html: addnotation}}/>
             </div>

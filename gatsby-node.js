@@ -60,6 +60,22 @@ exports.createPages = async ({graphql, actions}) => {
               ... on STRAPI__COMPONENT_SECTIONS_PRICING {
               componentId
               id
+                package_options {
+                    id
+                    options {
+                        id
+                        text
+                    }
+                   title
+                   type
+                   price
+                   priceAdditional
+                   isMark
+                   chooseContactLabel
+                   description {
+                       data
+                   }
+                }
               description {
                 data {
                   childMarkdownRemark {
