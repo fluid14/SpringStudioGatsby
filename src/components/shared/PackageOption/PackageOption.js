@@ -27,7 +27,6 @@ const PackageOption = ({ data }) => {
       const onClick = (btn) => {
         btn.addEventListener('click', () => {
           contactForm.scrollIntoView();
-          contactForm.querySelector('#package').value = chooseContactLabel;
           let formTitleText;
 
           chooseContactLabel

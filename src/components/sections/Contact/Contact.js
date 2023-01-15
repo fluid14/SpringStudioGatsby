@@ -52,16 +52,16 @@ const ContactComponent = ({ data, global }) => {
 
   const formik = useFormik({
     initialValues: {
-      firstName: '',
-      lastName: '',
+      name: '',
       email: '',
+      phone: '',
+      package: '',
+      message: '',
     },
-    onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
-    },
+    onSubmit: (values, { setSubmitting }) => sendMessage(values, setSubmitting),
   });
 
-  const { handleChange, handleBlur, values } = formik;
+  const { handleChange, handleBlur, handleSubmit, values } = formik;
 
   return (
     <section className="relative py-[50px] md:py-24 bg-gray-50 overflow-hidden" id={componentId}>
@@ -95,7 +95,10 @@ const ContactComponent = ({ data, global }) => {
             </div>
           </div>
           <div className="w-full lg:w-1/2 p-8">
-            <form className="px-[20px] py-[30px] sm:px-11 sm:py-11 bg-white bg-opacity-80 md:max-w-xl mx-auto rounded-4xl shadow-12xl">
+            <form
+              onSubmit={handleSubmit}
+              className="px-[20px] py-[30px] sm:px-11 sm:py-11 bg-white bg-opacity-80 md:max-w-xl mx-auto rounded-4xl shadow-12xl"
+            >
               <label className="block mb-4">
                 <input
                   className="px-4 py-3 w-full text-gray-500 font-medium placeholder-gray-500 bg-white bg-opacity-50 outline-none border border-blueGray-200 rounded-lg focus:ring focus:ring-indigo-300"
@@ -116,7 +119,10 @@ const ContactComponent = ({ data, global }) => {
                   type="email"
                   placeholder="Email"
                   name="email"
-                  required="required"
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  value={values.email}
+                  required
                 />
               </label>
               <label className="block mb-4">
@@ -126,7 +132,10 @@ const ContactComponent = ({ data, global }) => {
                   type="text"
                   placeholder="Telefon"
                   name="phone"
-                  required="required"
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  value={values.phone}
+                  required
                 />
                 <label className="block mb-4">
                   <input
@@ -135,6 +144,9 @@ const ContactComponent = ({ data, global }) => {
                     type="text"
                     placeholder="Pakiet"
                     name="package"
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    value={values.package}
                   />
                 </label>
               </label>
@@ -144,14 +156,21 @@ const ContactComponent = ({ data, global }) => {
                   id="message"
                   placeholder="Wiadomość"
                   name="message"
-                ></textarea>
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  value={values.message}
+                  required
+                />
               </label>
-              <button
-                className="py-4 px-9 w-full text-white font-semibold border border-indigo-700 rounded-xl shadow-4xl focus:ring focus:ring-indigo-300 bg-indigo-600 hover:bg-indigo-700 transition ease-in-out duration-200"
-                type="submit"
-              >
-                Wyślij wiadomość
-              </button>
+              {showAfterSendMessage && <p>{afterSendMessage}</p>}
+              {!showAfterSendMessage && (
+                <button
+                  className="py-4 px-9 w-full text-white font-semibold border border-indigo-700 rounded-xl shadow-4xl focus:ring focus:ring-indigo-300 bg-indigo-600 hover:bg-indigo-700 transition ease-in-out duration-200"
+                  type="submit"
+                >
+                  Wyślij wiadomość
+                </button>
+              )}
             </form>
           </div>
         </div>
