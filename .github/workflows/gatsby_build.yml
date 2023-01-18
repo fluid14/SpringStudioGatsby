@@ -34,6 +34,6 @@ jobs:
           password: ${{ secrets.SSH_PASSWORD }}    
           port: 222
           server-dir: 'public_html/'
-          local-dir: 'public'
+          local-dir: 'public/'
           dangerous-clean-slate: true
           exclude: 'projects'
