@@ -37,4 +37,3 @@ jobs:
           local-dir: 'public'
           dangerous-clean-slate: true
           exclude: 'projects'
-          protocol: sftp
