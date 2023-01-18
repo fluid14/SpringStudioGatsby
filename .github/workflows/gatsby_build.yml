@@ -25,14 +25,16 @@ jobs:
         env:
           STRAPI_TOKEN: ${{ secrets.STRAPI_TOKEN }}
           STRAPI_API_URL: ${{ secrets.STRAPI_API_URL }}
-
+          
       - name: 📂 Sync files
-        uses: easingthemes/ssh-deploy@main
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_KEY }}
-          REMOTE_HOST: ${{ secrets.SSH_HOST }}
-          REMOTE_USER: ${{ secrets.SSH_USERNAME }}
-          REMOTE_PORT: 222
-          ARGS: '--delete --exclude=projects'
-          SOURCE: 'public/'
-          TARGET: 'public_html/'
+        uses: SamKirkland/FTP-Deploy-Action@4.3.3
+        with:
+          server: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          password: ${{ secrets.SSH_PASSWORD }}    
+          port: 222
+          server-dir: 'public_html/'
+          local-dir: 'public'
+          dangerous-clean-slate: true
+          exclude: 'projects'
+          protocol: sftp
