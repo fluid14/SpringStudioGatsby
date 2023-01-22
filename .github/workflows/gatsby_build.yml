@@ -33,6 +33,6 @@ jobs:
             password: ${{ secrets.SSH_PASSWORD }}
             server: ${{ secrets.SSH_HOST }}
             port: 222
-            local_path: 'public/'
+            local_path: 'public/*'
             remote_path: '/home/crkikweqem/domains/springstudio.pl/public_html/'
             sftp_only: true
