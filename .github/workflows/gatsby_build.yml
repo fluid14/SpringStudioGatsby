@@ -33,6 +33,7 @@ jobs:
           REMOTE_HOST: ${{ secrets.SSH_HOST }}
           REMOTE_USER: ${{ secrets.SSH_USERNAME }}
           REMOTE_PORT: 222
-          ARGS: '--delete --exclude=projects'
+          ARGS: '--delete --exclude=cms'
           SOURCE: 'public/'
           TARGET: 'public_html/'
+          SCRIPT_BEFORE: ls
