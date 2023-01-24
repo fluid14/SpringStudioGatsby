@@ -2,10 +2,7 @@ import React from 'react';
 
 const Step = ({ data }) => {
   const {
-    icon: {
-      localFile: { url: icon },
-      alternativeText: iconAlt,
-    },
+    icon: { localFile, alternativeText: iconAlt },
     title,
     description: {
       data: {
@@ -21,7 +18,7 @@ const Step = ({ data }) => {
         {!isSpecialIcon && (
           <div className="relative z-10 bg-white w-12 h-12 mb-8 mx-auto border border-blueGray-200 rounded-full">
             <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
-              <img src={icon} alt={iconAlt} />
+              <img src={localFile?.url} alt={iconAlt} />
             </div>
             <div className="hidden xl:block absolute left-12 top-1/2 transform -translate-y-1/2 w-96 h-px bg-gray-200" />
           </div>
@@ -30,7 +27,7 @@ const Step = ({ data }) => {
         {isSpecialIcon && (
           <div className="relative z-10 bg-indigo-600 w-12 h-12 mb-8 mx-auto border border-blueGray-200 rounded-full">
             <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
-              <img src={icon} alt={iconAlt} />
+              <img src={localFile?.url} alt={iconAlt} />
             </div>
           </div>
         )}
