@@ -5,3 +5,9 @@
  */
 import './src/styles/tailwind.min.css';
 import './static/main';
+import React from 'react';
+import { PickedPackageProvider } from './src/context/PickedPackageContext';
+
+export const wrapRootElement = ({ element }) => (
+  <PickedPackageProvider>{element}</PickedPackageProvider>
+);

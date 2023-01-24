@@ -1,10 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { StaticQuery, graphql } from 'gatsby';
 import gradient from '/static/images/contact/gradient2.svg';
 import axios from 'axios';
 import { useFormik } from 'formik';
+import { PickedPackageContext } from '../../../context/PickedPackageContext';
 
 const ContactComponent = ({ data, global }) => {
+  const { pickedPackage } = useContext(PickedPackageContext);
+
   const {
     signature,
     label: {
@@ -55,7 +58,7 @@ const ContactComponent = ({ data, global }) => {
       name: '',
       email: '',
       phone: '',
-      package: '',
+      package: pickedPackage,
       message: '',
     },
     onSubmit: (values, { setSubmitting }) => sendMessage(values, setSubmitting),

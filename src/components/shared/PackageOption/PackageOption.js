@@ -1,7 +1,10 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useContext } from 'react';
 import bird from '../../../../static/icons/bird.svg';
+import { PickedPackageContext } from '../../../context/PickedPackageContext';
 
 const PackageOption = ({ data }) => {
+  const { setPickedPackage, getPickedPackage } = useContext(PickedPackageContext);
+
   const {
     title,
     description: { data: description },
@@ -27,6 +30,7 @@ const PackageOption = ({ data }) => {
       const onClick = (btn) => {
         btn.addEventListener('click', () => {
           contactForm.scrollIntoView();
+          setPickedPackage(chooseContactLabel);
           let formTitleText;
 
           chooseContactLabel

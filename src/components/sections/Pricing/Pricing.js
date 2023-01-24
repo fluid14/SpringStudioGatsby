@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PackageOption from '../../shared/PackageOption/PackageOption';
 
 const Pricing = ({ data }) => {

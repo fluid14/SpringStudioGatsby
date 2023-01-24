@@ -8,10 +8,7 @@ const WhatWeDoBlock = ({ data }) => {
         childMarkdownRemark: { html: description },
       },
     },
-    icon: {
-      localFile: { url: icon },
-      iconAlt,
-    },
+    icon: { localFile, iconAlt },
   } = data;
 
   return (
@@ -19,7 +16,7 @@ const WhatWeDoBlock = ({ data }) => {
       <div className="p-7 bg-white border border-gray-400 rounded-3xl w-full h-full">
         <div className="flex flex-wrap flex-col md:flex-row -m-4">
           <div className="w-auto p-4 pb-0 md:pb-4">
-            <img src={icon} alt={iconAlt} />
+            <img src={localFile?.url} alt={iconAlt} />
           </div>
           <div className="flex-1 p-4">
             <h3 className="mb-3 text-lg font-semibold">{title}</h3>
