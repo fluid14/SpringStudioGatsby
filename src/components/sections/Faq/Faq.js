@@ -23,6 +23,8 @@ const Faq = ({ data }) => {
       <img
         className="absolute bottom-0 left-1/2 transform -translate-x-1/2"
         src={gradient}
+        width="500"
+        height="500"
         alt="Kontakt"
       />
       <div className="relative z-10 container px-4 mx-auto">

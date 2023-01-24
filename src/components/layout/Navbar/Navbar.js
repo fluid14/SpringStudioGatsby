@@ -59,7 +59,7 @@ const NavbarComponent = ({ data: { strapiGlobal } }) => {
             <div className="flex flex-wrap items-center">
               <div className="w-auto mr-14">
                 <a href="#">
-                  <img className="nav-logo" src={logoUrl} alt={logoAlt} />
+                  <img className="nav-logo" src={logoUrl} alt={logoAlt} height="39" width="100" />
                 </a>
               </div>
               <div className="w-auto hidden lg:block">
@@ -126,7 +126,13 @@ const NavbarComponent = ({ data: { strapiGlobal } }) => {
                 <div className="flex items-center justify-between -m-2">
                   <div className="w-auto p-2">
                     <a className="inline-block" href="#">
-                      <img className="nav-logo" src={logoUrl} alt={logoAlt} />
+                      <img
+                        className="nav-logo"
+                        src={logoUrl}
+                        alt={logoAlt}
+                        width="100"
+                        height="39"
+                      />
                     </a>
                   </div>
                   <div className="w-auto p-2">

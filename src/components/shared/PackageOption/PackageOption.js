@@ -96,7 +96,7 @@ const PackageOption = ({ data }) => {
             {options.length > 0 &&
               options.map(({ text, id }) => (
                 <li className="mb-4 flex items-center" key={id}>
-                  <img src={bird} alt="opcja" />
+                  <img src={bird} alt="opcja" height="20" width="20" />
                   <p className="font-semibold leading-normal">{text}</p>
                 </li>
               ))}

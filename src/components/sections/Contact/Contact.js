@@ -68,7 +68,13 @@ const ContactComponent = ({ data, global }) => {
 
   return (
     <section className="relative py-[50px] md:py-24 bg-gray-50 overflow-hidden" id={componentId}>
-      <img className="absolute bottom-0 right-0" src={gradient} alt="gradient" />
+      <img
+        className="absolute bottom-0 right-0"
+        src={gradient}
+        alt="gradient"
+        height="400"
+        width="400"
+      />
       <div className="relative z-10 container px-4 mx-auto">
         <div className="flex flex-wrap -m-8">
           <div className="w-full lg:w-1/2 p-8">

@@ -46,7 +46,7 @@ const FaqElement = ({ data }) => {
               />
             </div>
             <div className="w-auto p-2">
-              <img src={arrowDown} alt="strzałka" />
+              <img src={arrowDown} alt="strzałka" height="18" width="18" />
             </div>
           </div>
         </div>

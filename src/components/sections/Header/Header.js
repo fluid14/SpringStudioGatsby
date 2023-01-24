@@ -26,7 +26,13 @@ const Header = ({ data }) => {
       <div className="overflow-hidden">
         <div className="container px-4 mx-auto">
           <div className="relative bg-indigo-50 overflow-hidden rounded-3xl">
-            <img className="absolute left-0 bottom-0" src={gradient} alt="gradient" />
+            <img
+              className="absolute left-0 bottom-0"
+              src={gradient}
+              alt="gradient"
+              width="500"
+              height="500"
+            />
             <div className="relative flex flex-wrap justify-between items-end -m-8">
               <div className="w-full xl:w-1/2 p-[60px] pb-0 md:p-20 md:pb-0 lg:pb-0 lg:pl-28 lg:py-28 xl:pb-20">
                 <h2 className="mb-7 text-6xl md:text-8xl xl:text-10xl font-bold font-heading tracking-px-n leading-none">

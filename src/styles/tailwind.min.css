@@ -4,6 +4,7 @@
 :before {
   box-sizing: border-box;
   border: 0 solid #e5e7eb;
+  font-display: swap;
 }
 :after,
 :before {
@@ -20,6 +21,7 @@ html {
     Segoe UI Symbol, Noto Color Emoji;
   font-feature-settings: normal;
 }
+
 body {
   margin: 0;
   line-height: inherit;
