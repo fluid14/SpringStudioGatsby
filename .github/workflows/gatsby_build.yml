@@ -35,5 +35,5 @@ jobs:
           REMOTE_PORT: 222
           ARGS: '--delete --exclude=cms'
           SOURCE: 'public/'
-          TARGET: 'public_html/'
+          TARGET: 'domains/springstudio.pl/public_html/'
           SCRIPT_BEFORE: ls
