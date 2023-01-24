@@ -10,7 +10,6 @@ import Contact from '../../components/sections/Contact/Contact';
 
 const Default = ({ pageContext: { data } }) => (
   <Theme>
-    <h1>test</h1>
     {data.map((component) => {
       const { strapi_component: componentType, id } = component;
 
