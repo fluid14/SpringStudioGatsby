@@ -6,7 +6,11 @@ import Seo from '../components/seo';
 
 const Theme = ({ children }) => (
   <>
-    <Helmet>
+    <Helmet
+      htmlAttributes={{
+        lang: 'en',
+      }}
+    >
       <Seo />
       <link rel="preconnect" href="https://fonts.gstatic.com" />
       <link

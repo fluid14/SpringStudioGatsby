@@ -35,9 +35,9 @@ const Header = ({ data }) => {
             />
             <div className="relative flex flex-wrap justify-between items-end -m-8">
               <div className="w-full xl:w-1/2 p-[60px] pb-0 md:p-20 md:pb-0 lg:pb-0 lg:pl-28 lg:py-28 xl:pb-20">
-                <h2 className="mb-7 text-6xl md:text-8xl xl:text-10xl font-bold font-heading tracking-px-n leading-none">
+                <h1 className="mb-7 text-6xl md:text-8xl xl:text-10xl font-bold font-heading tracking-px-n leading-none">
                   {title}
-                </h2>
+                </h1>
                 <div
                   className="mb-10 text-lg text-gray-900 font-medium"
                   dangerouslySetInnerHTML={{ __html: description }}
