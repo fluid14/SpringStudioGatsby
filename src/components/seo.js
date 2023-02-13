@@ -1,42 +1,58 @@
-/**
- * SEO component that queries for data with
- * Gatsby's useStaticQuery React hook
- *
- * See: https://www.gatsbyjs.com/docs/how-to/querying-data/use-static-query/
- */
-
 import * as React from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
+import { useSiteMetadata } from '../hooks/useSiteMetadata';
 
-function Seo({ description, title, children }) {
-  const { site } = useStaticQuery(
-    graphql`
-      query {
-        site {
-          siteMetadata {
-            title
-            description
-            author
-          }
-        }
-      }
-    `
-  );
+function Seo({
+  description,
+  title,
+  keywords,
+  image,
+  preventIndexing,
+  siteUrl,
+  twitterCreator,
+  children,
+}) {
+  const {
+    seo: {
+      keywords: defaultKeywords,
+      metaTitle: defaultMetaTitle,
+      metaDescription: defaultMetaDescription,
+      preventIndexing: defaultPreventIndexing,
+      shareImage: { url: defaultShareImageUrl },
+    },
+    siteUrl: defaultSiteUrl,
+    twitterCreator: defaultTwitterCreator,
+  } = useSiteMetadata();
 
-  const metaDescription = description || site.siteMetadata.description;
-  const defaultTitle = site.siteMetadata?.title;
+  const metaTitle = title || defaultMetaTitle;
+  const metaDescription = description || defaultMetaDescription;
+  const metaKeywords = keywords || defaultKeywords;
+  const metaPreventIndexing = preventIndexing || defaultPreventIndexing;
+  const metaImage = `${defaultSiteUrl}${defaultShareImageUrl}` || `${siteUrl}${image}`;
+  const metaSiteUrl = siteUrl || defaultSiteUrl;
+  const metaTwitterCreator = twitterCreator || defaultTwitterCreator;
 
   return (
     <>
-      <title>{defaultTitle ? `${title} | ${defaultTitle}` : title}</title>
-      <meta name="description" content={metaDescription} />
-      <meta property="og:title" content={title} />
-      <meta property="og:description" content={metaDescription} />
+      <title>{metaTitle}</title>
+      <meta name="image" content={metaImage} />
+      <meta name="description" key="description" content={metaDescription} />
+      <meta name="keywords" content={metaKeywords} />
+      <meta property="og:title" key="og:title" content={metaTitle} />
+      <meta property="og:description" key="og:description" content={metaDescription} />
       <meta property="og:type" content="website" />
+      <meta property="og:url" key="og:url" content={metaSiteUrl} />
+      <meta property="og:image" key="og:image" content={metaImage} />
+      <link rel="canonical" href={metaSiteUrl} />
       <meta name="twitter:card" content="summary" />
-      <meta name="twitter:creator" content={site.siteMetadata?.author || ``} />
+      <meta name="twitter:creator" content={metaTwitterCreator} />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={metaDescription} />
+      {metaPreventIndexing && (
+        <>
+          <meta name="robots" content="noindex" />
+          <meta name="googlebot" content="noindex" />
+        </>
+      )}
       {children}
     </>
   );

@@ -2,10 +2,12 @@ import React from 'react';
 import Navbar from '../components/layout/Navbar/Navbar';
 import { Helmet } from 'react-helmet';
 import Footer from '../components/layout/Footer/Footer';
+import Seo from '../components/seo';
 
 const Theme = ({ children }) => (
   <>
     <Helmet>
+      <Seo />
       <link rel="preconnect" href="https://fonts.gstatic.com" />
       <link
         href="https://fonts.cdnfonts.com/css/general-sans?styles=135312,135310,135313,135303"

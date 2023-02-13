@@ -10,14 +10,23 @@
 
 const path = require(`path`);
 
-exports.createPages = async ({graphql, actions}) => {
-    const {createPage} = actions;
-    const query = await graphql(`
+exports.createPages = async ({ graphql, actions }) => {
+  const { createPage } = actions;
+  const query = await graphql(`
     query MyQuery {
       allStrapiHomePage {
         nodes {
+          seo {
+            keywords
+            metaDescription
+            metaTitle
+            preventIndexing
+            shareImage {
+              url
+            }
+          }
           body {
-             ... on STRAPI__COMPONENT_SECTIONS_CONTACT {
+            ... on STRAPI__COMPONENT_SECTIONS_CONTACT {
               componentId
               id
               label {
@@ -32,7 +41,7 @@ exports.createPages = async ({graphql, actions}) => {
               textAfterSend
               signature
             }
-             ... on STRAPI__COMPONENT_SECTIONS_FAQ {
+            ... on STRAPI__COMPONENT_SECTIONS_FAQ {
               componentId
               id
               additional {
@@ -57,25 +66,25 @@ exports.createPages = async ({graphql, actions}) => {
               strapi_component
               title
             }
-              ... on STRAPI__COMPONENT_SECTIONS_PRICING {
+            ... on STRAPI__COMPONENT_SECTIONS_PRICING {
               componentId
               id
-                package_options {
-                    id
-                    options {
-                        id
-                        text
-                    }
-                   title
-                   type
-                   price
-                   priceAdditional
-                   isMark
-                   chooseContactLabel
-                   description {
-                       data
-                   }
+              package_options {
+                id
+                options {
+                  id
+                  text
                 }
+                title
+                type
+                price
+                priceAdditional
+                isMark
+                chooseContactLabel
+                description {
+                  data
+                }
+              }
               description {
                 data {
                   childMarkdownRemark {
@@ -93,7 +102,7 @@ exports.createPages = async ({graphql, actions}) => {
               strapi_component
               title
             }
-              ... on STRAPI__COMPONENT_SECTIONS_STEPS {
+            ... on STRAPI__COMPONENT_SECTIONS_STEPS {
               componentId
               id
               title
@@ -140,7 +149,7 @@ exports.createPages = async ({graphql, actions}) => {
             ... on STRAPI__COMPONENT_SECTIONS_HEADER {
               componentId
               id
-               description {
+              description {
                 data {
                   childMarkdownRemark {
                     html
@@ -198,29 +207,13 @@ exports.createPages = async ({graphql, actions}) => {
     }
   `);
 
-    // package_options {
-    //     options {
-    //         text
-    //     }
-    //     title
-    //     type
-    //     price
-    //     priceAdditional
-    //     isMark
-    //     description {
-    //         data
-    //     }
-    // }
-
-    query.data.allStrapiHomePage.nodes.forEach(({body}) => {
-        createPage({
-            path: '/',
-            component: path.resolve(`./src/layouts/default/default.js`),
-            context: {
-                data: body,
-            },
-        });
+  query.data.allStrapiHomePage.nodes.forEach(({ body }) => {
+    createPage({
+      path: '/',
+      component: path.resolve(`./src/layouts/default/default.js`),
+      context: {
+        data: body,
+      },
     });
+  });
 };
-
-

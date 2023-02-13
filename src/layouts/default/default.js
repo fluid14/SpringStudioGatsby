@@ -7,6 +7,7 @@ import Steps from '../../components/sections/Steps/Steps';
 import Pricing from '../../components/sections/Pricing/Pricing';
 import Faq from '../../components/sections/Faq/Faq';
 import Contact from '../../components/sections/Contact/Contact';
+import Seo from '../../components/seo';
 
 const Default = ({ pageContext: { data } }) => (
   <Theme>
@@ -43,3 +44,8 @@ const Default = ({ pageContext: { data } }) => (
 );
 
 export default Default;
+
+export const Head = ({ pageContext: { data } }) => {
+  console.log(data);
+  return <Seo title="404: Not Found" />;
+};
