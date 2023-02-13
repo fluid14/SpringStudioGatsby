@@ -2,10 +2,10 @@ import * as React from 'react';
 import { useSiteMetadata } from '../hooks/useSiteMetadata';
 
 function Seo({
-  description,
-  title,
+  metaDescription: description,
+  metaTitle: title,
   keywords,
-  image,
+  shareImage: { url: image },
   preventIndexing,
   siteUrl,
   twitterCreator,

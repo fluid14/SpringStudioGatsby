@@ -45,7 +45,4 @@ const Default = ({ pageContext: { data } }) => (
 
 export default Default;
 
-export const Head = ({ pageContext: { data } }) => {
-  console.log(data);
-  return <Seo title="404: Not Found" />;
-};
+export const Head = ({ pageContext: { seo } }) => <Seo {...seo} />;

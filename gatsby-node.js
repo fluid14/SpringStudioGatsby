@@ -207,12 +207,13 @@ exports.createPages = async ({ graphql, actions }) => {
     }
   `);
 
-  query.data.allStrapiHomePage.nodes.forEach(({ body }) => {
+  query.data.allStrapiHomePage.nodes.forEach(({ body, seo }) => {
     createPage({
       path: '/',
       component: path.resolve(`./src/layouts/default/default.js`),
       context: {
         data: body,
+        seo,
       },
     });
   });
