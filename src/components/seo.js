@@ -5,7 +5,7 @@ function Seo({
   metaDescription: description,
   metaTitle: title,
   keywords,
-  shareImage: { url: image },
+  shareImage,
   preventIndexing,
   siteUrl,
   twitterCreator,
@@ -27,7 +27,7 @@ function Seo({
   const metaDescription = description || defaultMetaDescription;
   const metaKeywords = keywords || defaultKeywords;
   const metaPreventIndexing = preventIndexing || defaultPreventIndexing;
-  const metaImage = `${defaultSiteUrl}${defaultShareImageUrl}` || `${siteUrl}${image}`;
+  const metaImage = `${defaultSiteUrl}${defaultShareImageUrl}` || `${siteUrl}${shareImage?.url}`;
   const metaSiteUrl = siteUrl || defaultSiteUrl;
   const metaTwitterCreator = twitterCreator || defaultTwitterCreator;
 
