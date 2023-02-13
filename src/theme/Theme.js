@@ -8,7 +8,7 @@ const Theme = ({ children }) => (
   <>
     <Helmet
       htmlAttributes={{
-        lang: 'en',
+        lang: 'pl',
       }}
     >
       <Seo />
