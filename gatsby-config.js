@@ -74,5 +74,12 @@ module.exports = {
         head: true,
       },
     },
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        host: 'https://www.springstudio.pl',
+        policy: [{ userAgent: '*', allow: '/' }],
+      },
+    },
   ],
 };
