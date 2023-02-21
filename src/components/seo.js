@@ -9,6 +9,7 @@ function Seo({
   preventIndexing,
   siteUrl,
   twitterCreator,
+  structuredData: data,
   children,
 }) {
   const {
@@ -30,6 +31,7 @@ function Seo({
   const metaImage = `${defaultSiteUrl}${defaultShareImageUrl}` || `${siteUrl}${shareImage?.url}`;
   const metaSiteUrl = siteUrl || defaultSiteUrl;
   const metaTwitterCreator = twitterCreator || defaultTwitterCreator;
+  const structuredData = JSON.stringify(data);
 
   return (
     <>
@@ -47,6 +49,7 @@ function Seo({
       <meta name="twitter:creator" content={metaTwitterCreator} />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={metaDescription} />
+      <script type="application/ld+json">{structuredData}</script>
       {metaPreventIndexing && (
         <>
           <meta name="robots" content="noindex" />

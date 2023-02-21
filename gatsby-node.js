@@ -24,6 +24,18 @@ exports.createPages = async ({ graphql, actions }) => {
             shareImage {
               url
             }
+            structuredData {
+              _context
+              _type
+              id
+              mainEntity {
+                _type
+                acceptedAnswer {
+                  _type
+                  text
+                }
+              }
+            }
           }
           body {
             ... on STRAPI__COMPONENT_SECTIONS_CONTACT {
